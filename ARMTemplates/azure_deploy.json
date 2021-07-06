@@ -49,7 +49,7 @@
     },
     "publicIpSku": {
       "type": "string",
-      "defaultValue": "Basic",
+      "defaultValue": "Standard",
       "allowedValues": [
         "Basic",
         "Standard"
@@ -97,7 +97,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "simple-vm",
+      "defaultValue": "webserver2",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -240,7 +240,7 @@
           "osDisk": {
             "createOption": "FromImage",
             "managedDisk": {
-              "storageAccountType": "StandardSSD_LRS"
+              "storageAccountType": "StandardHDD_LRS"
             }
           },
           "dataDisks": [
