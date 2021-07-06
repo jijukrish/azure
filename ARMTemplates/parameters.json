@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralus"
+        },
+        "networkInterfaceName": {
+            "value": "webserver1792"
+        },
+        "subnetName": {
+            "value": "Subnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/2a265ad0-8927-4f65-af57-1e047af61891/resourceGroups/RG01/providers/Microsoft.Network/virtualNetworks/MyVNET"
+        },
+        "publicIpAddressName": {
+            "value": "webserver1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "virtualMachineName": {
+            "value": "webserver1"
+        },
+        "virtualMachineComputerName": {
+            "value": "webserver1"
+        },
+        "virtualMachineRG": {
+            "value": "RG01"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "localadmin"
+        },
+        "adminPassword": {
+            "value": "write your password"
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        },
+        "zone": {
+            "value": "1"
+        }
+    }
+}
