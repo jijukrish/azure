@@ -38,7 +38,7 @@
     },
     "publicIPAllocationMethod": {
       "type": "string",
-      "defaultValue": "Dynamic",
+      "defaultValue": "Static",
       "allowedValues": [
         "Dynamic",
         "Static"
@@ -240,7 +240,7 @@
           "osDisk": {
             "createOption": "FromImage",
             "managedDisk": {
-              "storageAccountType": "StandardHDD_LRS"
+              "storageAccountType": "Standard_LRS"
             }
           },
           "dataDisks": [
