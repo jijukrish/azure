@@ -1,0 +1,55 @@
+1.Az login
+Connect-AzAccount
+Get-AzSubscription
+Creating a VM using powershell and ARM template
+New-AzResourceGroupDeployment -Name DevDeployment -ResourceGroupName signfxprod `
+  -TemplateUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_template.json `
+  -TemplateParameterUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_parameters.json
+  
+  
+Azure cloud shell
+az vm create \
+    --resource-group learn-2e263fdc-3451-404b-bf7a-32879f4760a6c \
+    --name webserver1 \
+    --image win2016datacenter \
+    --admin-username azureuser 
+	
+New-AzVm `
+    -ResourceGroupName "signfx-resources" `
+    -Name "devserver1" `
+    -Location "South India" `
+    -VirtualNetworkName "signfxnetwork" `
+    -SubnetName "development" `
+    -SecurityGroupName "signfxNSG" `
+    -PublicIpAddressName "devserver1" `
+    -OpenPorts 80,3389
+================================================================================
+$VMLocalAdminUser = "rootadmin" `
+$VMLocalAdminSecurePassword = ConvertTo-SecureString "password here" -AsPlainText -Force `
+$LocationName = "centralus" `
+$ResourceGroupName = "signfxprod" `
+$ComputerName = "devserver1" `
+$VMName = "devserver1" `
+$VMSize = "Standard_B1ms" `
+$NetworkName = "signfx-devopsnw" `
+$NICName = "devserver-1" `
+$SubnetName = "development" `
+$SubnetAddressPrefix = "192.162.30.0/24" `
+$VnetAddressPrefix = "192.162.0.0/16" `
+
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix `
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet `
+$NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id `
+
+$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword); `
+
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize `
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate `
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id `
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest `
+
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
+	
+	
+	
+================================================================================
