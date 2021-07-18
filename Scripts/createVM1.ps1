@@ -1,5 +1,5 @@
 ﻿$VMLocalAdminUser = "LocalAdminUser"
-$VMLocalAdminSecurePassword = ConvertTo-SecureString ettumanoor123! -AsPlainText -Force
+$VMLocalAdminSecurePassword = ConvertTo-SecureString passwordhere -AsPlainText -Force
 $LocationName = "westus"
 $ResourceGroupName = "webResourceGroup"
 $ComputerName = "webserver1"
