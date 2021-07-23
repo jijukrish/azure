@@ -6,7 +6,7 @@
             "value": "centralus"
         },
         "networkInterfaceName": {
-            "value": "webserver1792"
+            "value": "webserver179"
         },
         "subnetName": {
             "value": "Subnet"
@@ -42,7 +42,7 @@
             "value": "localadmin"
         },
         "adminPassword": {
-            "value": "write your password"
+            "value": "ettumanoor123!"
         },
         "patchMode": {
             "value": "AutomaticByOS"

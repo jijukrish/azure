@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralus"
+        },
+        "resourceGroup": {
+            "value": "SimplilearnRG"
+        },
+        "azureFirewallName": {
+            "value": "productionnwFW"
+        },
+        "azureFirewallTier": {
+            "value": "Standard"
+        },
+        "vnetName": {
+            "value": ""
+        },
+        "vnetAddressSpace": {
+            "value": ""
+        },
+        "subnetAddressSpace": {
+            "value": ""
+        },
+        "subnetId": {
+            "value": "/subscriptions/73ec29fd-1ee7-4672-997c-be6d9978fd59/resourceGroups/SimplilearnRG/providers/Microsoft.Network/virtualNetworks/productionNW/subnets/AzureFirewallSubnet"
+        },
+        "managementSubnetId": {
+            "value": "/subscriptions/73ec29fd-1ee7-4672-997c-be6d9978fd59/resourceGroups/SimplilearnRG/providers/Microsoft.Network/virtualNetworks/productionNW/subnets/AzureFirewallManagementSubnet"
+        },
+        "zones": {
+            "value": [
+                "1"
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "productionfw-ip"
+        },
+        "publicIpZones": {
+            "value": [
+                "1"
+            ]
+        }
+    }
+}

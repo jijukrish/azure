@@ -75,7 +75,7 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-                            "privateIPAllocationMethod": "Dynamic",
+                            "privateIPAllocationMethfod": "Dynamic",
                             "publicIpAddress": {
                                 "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName'))]"
                             }
