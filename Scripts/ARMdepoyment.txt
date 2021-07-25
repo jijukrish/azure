@@ -1,0 +1,22 @@
+Creating a VM using powershell and ARM template
+New-AzResourceGroupDeployment -Name DevDeployment -ResourceGroupName signfxprod `
+  -TemplateUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_template.json `
+  -TemplateParameterUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_parameters.json
+
+ Firewall creation
+ New-AzResourceGroupDeployment -Name firewallDeployment -ResourceGroupName SimplilearnRG `
+  -TemplateUri https://webandscript.blob.core.windows.net/devops/firewall_template.json `
+  -TemplateParameterUri https://webandscript.blob.core.windows.net/devops/firewall_parameters.json
+  
+  New-AzResourceGroupDeployment -Name SQLDBDeployment -ResourceGroupName SimplilearnRG `
+  -TemplateUri https://webandscript.blob.core.windows.net/devops/SQLDB_template.json `
+  -TemplateParameterUri https://webandscript.blob.core.windows.net/devops/SQLDB_parameters.json
+  
+  New-AzResourceGroupDeployment -Name AppfunctionDeployment -ResourceGroupName SimplilearnRG `
+  -TemplateUri https://webandscript.blob.core.windows.net/devops/appfn_template.json `
+  -TemplateParameterUri  https://webandscript.blob.core.windows.net/devops/appfn_parameters.json
+  
+ Creating Vnet, two subnets
+ New-AzResourceGroupDeployment -Name VnetDeployment -ResourceGroupName signfxRG `
+  -TemplateUri https://signfxstore.blob.core.windows.net/devopsscripts/prod_network_template.json `
+  -TemplateParameterUri  https://signfxstore.blob.core.windows.net/devopsscripts/prod_network_parameters.json
