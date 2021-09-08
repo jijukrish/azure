@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralus"
+        },
+        "networkInterfaceName": {
+            "value": "devserver1-nic01"
+        },
+        "subnetName": {
+            "value": "devnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/a15c81ae-482e-4e90-b876-e5e28157153d/resourceGroups/au_e_bodharg01/providers/Microsoft.Network/virtualNetworks/bodha-prodnw"
+        },
+        "publicIpAddressName": {
+            "value": "devserver1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "virtualMachineName": {
+            "value": "devserver1"
+        },
+        "virtualMachineComputerName": {
+            "value": "devserver1"
+        },
+        "virtualMachineRG": {
+            "value": "au_e_bodharg01"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B2ms"
+        },
+        "adminUsername": {
+            "value": "localadmin"
+        },
+        "adminPassword": {
+            "value": "passoword here"
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        },
+        "zone": {
+            "value": "1"
+        }
+    }
+}
