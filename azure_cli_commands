@@ -1,0 +1,9 @@
+To get resource groups
+Get-AzResourceGroup |
+  Sort Location,ResourceGroupName |
+  Format-Table -GroupBy Location ResourceGroupName,ProvisioningState,Tags
+
+ARM deployment
+New-AzResourceGroupDeployment -Name dockerMasterDeployment -ResourceGroupName devopsexperts `
+  -TemplateUri https://bodhastorageacc.blob.core.windows.net/automation/dockerMaster_template.json `
+  -TemplateParameterUri https://bodhastorageacc.blob.core.windows.net/automation/dockerMaster_parameters.json
