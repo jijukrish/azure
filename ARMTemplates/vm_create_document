@@ -1,0 +1,43 @@
+1.Az login
+Connect-AzAccount
+Get-AzSubscription
+Creating a VM using powershell and ARM template
+New-AzResourceGroupDeployment -Name DevDeployment -ResourceGroupName signfxprod `
+  -TemplateUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_template.json `
+  -TemplateParameterUri https://signfxstorage.blob.core.windows.net/devops/signfx_dev_parameters.json
+  
+New-AzResourceGroupDeployment -Name ActiveMQDeployment -ResourceGroupName au_e_bodharg01 `
+  -TemplateUri https://bodhastorage.blob.core.windows.net/armscripts/activeMQVM_template.json `
+  -TemplateParameterUri https://bodhastorage.blob.core.windows.net/armscripts/activeMQVM_parameters.json
+  
+New-AzResourceGroupDeployment -Name dockerMasterDeployment -ResourceGroupName devopsexperts `
+  -TemplateUri https://bodhastorageacc.blob.core.windows.net/automation/dockerMaster_template.json `
+  -TemplateParameterUri https://bodhastorageacc.blob.core.windows.net/automation/dockerMaster_parameters.json
+  
+New-AzResourceGroupDeployment -Name kubeMasterDeployment -ResourceGroupName devopsexperts `
+  -TemplateUri https://bodhastorageacc.blob.core.windows.net/automation/kubemaster_template.json `
+  -TemplateParameterUri https://bodhastorageacc.blob.core.windows.net/automation/kubemaster_parameters.json
+  
+New-AzResourceGroupDeployment -Name kubeWorker1Deployment -ResourceGroupName devopsexperts `
+  -TemplateUri https://bodhastorageacc.blob.core.windows.net/automation/kubeworker1_template.json `
+  -TemplateParameterUri https://bodhastorageacc.blob.core.windows.net/automation/kubeworker1_parameters.json
+  
+  
+  
+Azure cloud shell
+az vm create \
+    --resource-group learn-2e263fdc-3451-404b-bf7a-32879f4760a6c \
+    --name webserver1 \
+    --image win2016datacenter \
+    --admin-username azureuser 
+	
+New-AzVm `
+    -ResourceGroupName "signfx-resources" `
+    -Name "devserver1" `
+    -Location "South India" `
+    -VirtualNetworkName "signfxnetwork" `
+    -SubnetName "development" `
+    -SecurityGroupName "signfxNSG" `
+    -PublicIpAddressName "devserver1" `
+    -OpenPorts 80,3389
+================================================================================
